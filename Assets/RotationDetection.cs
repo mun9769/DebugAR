@@ -13,6 +13,7 @@ public class RotationDetection : MonoBehaviour
     public void Btn_CheckAttribute()
     {
         ScreenLog.Log("attitude               " + _gyro.attitude);
+        ScreenLog.Log("attitude * (0,0,1,0)   " + _gyro.attitude * new Quaternion(0,0,1,0));
         ScreenLog.Log("gravity                " + _gyro.gravity);
         ScreenLog.Log("--------------------------------------------------");
         // ScreenLog.Log("rotationRate        " + _gyro.rotationRate);

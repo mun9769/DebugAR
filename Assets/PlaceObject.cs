@@ -33,9 +33,16 @@ public class PlaceObject : MonoBehaviour
     {
         if(raycaster.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
         {
+            ARRaycastHit arHit = hits[0];
             Pose hitPose = hits[0].pose;
             GameObject tmp = Instantiate(testObject, hitPose.position, hitPose.rotation);
-            ScreenLog.Log(hitPose.position);
+            ScreenLog.Log("arHit.pose.position : " + hitPose.position);
+            ScreenLog.Log("arHit.pose.rotation : " + arHit.pose.rotation);
+            ScreenLog.Log("arHit.distance : " + arHit.distance);
+            ScreenLog.Log("arHit.sessionRelativePose.position : " + arHit.sessionRelativePose.position);
+            ScreenLog.Log("arHit.sessionRelativePose.rotation : " + arHit.sessionRelativePose.rotation);
+            ScreenLog.Log("arHit.sessionRelativedistance : " + arHit.sessionRelativeDistance);
+            ScreenLog.Log("--------------------------------------------------------------------------");
             Destroy(tmp, 3.0f);
         }
     }

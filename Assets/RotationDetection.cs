@@ -9,11 +9,14 @@ public class RotationDetection : MonoBehaviour
     {
         _gyro = Input.gyro;
         _gyro.enabled = true;
+        Debug.Log(Quaternion.Euler(90.0f, 0.0f, 0.0f));
     }
     public void Btn_CheckAttribute()
     {
-        ScreenLog.Log("attitude               " + _gyro.attitude);
-        ScreenLog.Log("attitude * (0,0,1,0)   " + _gyro.attitude * new Quaternion(0,0,1,0));
+        ScreenLog.Log("attitude                 " + _gyro.attitude);
+        ScreenLog.Log(".ToEulerAngles(attitude)" + Quaternion.ToEulerAngles(_gyro.attitude));
+        ScreenLog.Log("attitude.eulerAngle    " + _gyro.attitude.eulerAngles);
+        ScreenLog.Log("Angle(attitude, attitude)    " + Quaternion.Angle(_gyro.attitude, _gyro.attitude));
         ScreenLog.Log("gravity                " + _gyro.gravity);
         ScreenLog.Log("--------------------------------------------------");
         // ScreenLog.Log("rotationRate        " + _gyro.rotationRate);
